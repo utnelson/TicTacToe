@@ -16,6 +16,11 @@ class Board:
                 print(f"{player.name} wins!")
                 return True
 
+    def check_eof_board(self):
+        for key, value in self.cells.items():
+            if value == " ":
+                return True
+
     def check_valid_move(self, choice):
         return self.cells[choice] == " "
 

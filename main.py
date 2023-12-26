@@ -23,6 +23,8 @@ while not eof_game:
             print("Invalid Move")
     if board.check_win(curr_player):
         eof_game = True
+    if not board.check_eof_board():
+        eof_game = True
     if curr_player == player1:
         curr_player = player2
     else:
