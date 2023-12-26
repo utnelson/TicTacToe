@@ -1,16 +1,32 @@
-# This is a sample Python script.
+from colorama import Fore
+from board import Board
+from art import logo
+import player
 
-# Press Umschalt+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+print(logo)
+board = Board()
+board.tutorial()
 
+player1 = player.Human("X", "User")
+player2 = player.Computer("O", "Computer")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Strg+F8 to toggle the breakpoint.
+curr_player = player2
+eof_game = False
 
+while not eof_game:
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+    #curr_turn = True
+    #while curr_turn:
+    move_valid = board.make_a_turn(curr_player)
+    if move_valid:
+        curr_turn = False
+    else:
+        print("Invalid Move")
+        curr_turn = False
+    if curr_player == player1:
+        curr_player = player2
+    else:
+        curr_player = player1
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    #eof_game = True
+
