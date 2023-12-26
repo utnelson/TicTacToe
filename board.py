@@ -8,7 +8,13 @@ class Board:
                       7: " ", 8: " ", 9: " "}
         self.win_conditions = [[1, 2, 3], [4, 5, 6], [7, 8, 9],
                                [1, 4, 7], [2, 5, 8], [3, 6, 9],
-                               [1, 5, 8], [3, 5, 7]]
+                               [1, 5, 9], [3, 5, 7]]
+
+    def check_win(self, player):
+        for condition in self.win_conditions:
+            if self.cells[condition[0]] == self.cells[condition[1]] == self.cells[condition[2]] == player.symbol:
+                print(f"{player.name} wins!")
+                return True
 
     def check_valid_move(self, choice):
         return self.cells[choice] == " "

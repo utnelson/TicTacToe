@@ -15,18 +15,20 @@ eof_game = False
 
 while not eof_game:
 
-    #curr_turn = True
-    #while curr_turn:
-    move_valid = board.make_a_turn(curr_player)
-    if move_valid:
-        curr_turn = False
-    else:
-        print("Invalid Move")
-        curr_turn = False
+    turn = True
+    while turn:
+        if board.make_a_turn(curr_player):
+            turn = False
+        else:
+            print("Invalid Move")
+    if board.check_win(curr_player):
+        eof_game = True
     if curr_player == player1:
         curr_player = player2
     else:
         curr_player = player1
 
-    #eof_game = True
+
+
+
 
